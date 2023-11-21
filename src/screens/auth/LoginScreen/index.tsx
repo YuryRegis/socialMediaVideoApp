@@ -32,7 +32,9 @@ export function LoginScreen({navigation}: AuthScreenProps<'LoginScreen'>) {
   
   function navigateToGoogleSignUpScreen() {};
 
-  function navigateToForgotPasswordScreen() {};
+  function navigateToForgotPasswordScreen() {
+    navigation.navigate('ForgotScreen');
+  };
 
   return (
     <Screen>
