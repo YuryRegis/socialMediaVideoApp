@@ -34,6 +34,11 @@ local.properties
 *.keystore
 !debug.keystore
 
+# GoogleService files
+#
+/ios/GoogleService-Info.plist
+/android/app/google-services.json
+
 # node.js
 #
 node_modules/
