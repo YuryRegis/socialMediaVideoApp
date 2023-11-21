@@ -26,7 +26,9 @@ export function LoginScreen({navigation}: AuthScreenProps<'LoginScreen'>) {
 
   function submitForm({email, password}: LoginSchema) {};
 
-  function navigateToSignUpScreen() {};
+  function navigateToSignUpScreen() {
+    navigation.navigate('SignUpScreen');
+  };
   
   function navigateToGoogleSignUpScreen() {};
 
