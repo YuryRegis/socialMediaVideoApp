@@ -7,7 +7,12 @@ import {useAuthCredentials} from '@services';
 
 
 export function Router() {
-  const authCredentials = useAuthCredentials();
+  const {authCredentials, loading} = useAuthCredentials();
+
+  if (loading) {
+    // TODO: Add a loading screen
+    return null;
+  };
 
   return (
     <NavigationContainer>
