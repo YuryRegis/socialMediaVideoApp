@@ -5,7 +5,8 @@ import {Box} from '@components';
 
 import {PostImage} from './components/PostImage';
 import {PostHeader} from './components/PostHeader';
-import { PostActions } from './components/PostActions';
+import {PostBottom} from './components/PostBottom';
+import {PostActions} from './components/PostActions';
 
 interface IPostItemProps {
   post: Post;
@@ -22,6 +23,11 @@ export function PostItem({post}: IPostItemProps) {
         favoriteCount={post.favoriteCount}
         reactionCount={post.reactionCount}
       />
+      <PostBottom 
+        title={post.title}
+        author={post.author}
+        description={post.description}
+        commentCount={post.commentCount} />
     </Box>
   );
 }
