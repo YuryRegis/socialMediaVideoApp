@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
+import {FlatList, ListRenderItemInfo, StyleProp, ViewStyle} from 'react-native';
 
-import {Screen, Text} from "@components";
 import {Post, postService} from "@domain";
+import {Screen, PostItem} from "@components";
 
 
 export function HomeScreen() {
@@ -10,12 +11,24 @@ export function HomeScreen() {
       postService.getList().then(list => setPostList(list));
     }, []);  
 
+    function renderItem({item}: ListRenderItemInfo<Post>) {
+      return <PostItem post={item} />;
+    }
+
     return (
-        <Screen>
-            <Text mb='s16' preset="headingLarge">HOME SCREEN</Text>
-            {postList.map(post => (
-                <Text>{post.title}</Text>
-            ))}
+        <Screen style={$screen}>
+            <FlatList
+                data={postList}
+                renderItem={renderItem}
+                keyExtractor={post => post.id}
+                showsVerticalScrollIndicator={false}
+            />
         </Screen>
     );
 }
+
+const $screen: StyleProp<ViewStyle> = {
+  paddingTop: 0,
+  paddingBottom: 0,
+  paddingHorizontal: 0,
+};

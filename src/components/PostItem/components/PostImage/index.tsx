@@ -11,7 +11,11 @@ export function PostImage({imageURL}: PostImageProps) {
     <Image
       source={{uri: imageURL}}
       resizeMode="cover"
-      style={{width: Dimensions.get('screen').width, height: 300}}
+      style={{
+        width: Dimensions.get('screen').width,
+        marginHorizontal: -24,
+        height: 300,
+      }}
     />
   );
 }
