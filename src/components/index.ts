@@ -10,6 +10,7 @@ export {ActivityIndicator} from './ActivityIndicator';
 export {FormTextInput, FormPasswordInput} from './Form';
 
 
+export type {TextProps} from './Text/TextProps';
 export type {BoxProps, TouchableOpacityBoxProps} from './Box';
 export type {TextInputProps} from './TextInput/TextInputProps';
 export type {IconBase, IconProps, IconName} from './Icon/IconProps';
