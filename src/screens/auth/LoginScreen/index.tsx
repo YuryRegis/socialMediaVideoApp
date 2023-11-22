@@ -9,6 +9,7 @@ import {
   FormTextInput,
   FormPasswordInput,
 } from '@components';
+import {authService} from '@domain';
 import {AuthScreenProps} from '@routes';
 import {LoginSchema, loginSchema} from './loginSchema';
 
@@ -24,7 +25,12 @@ export function LoginScreen({navigation}: AuthScreenProps<'LoginScreen'>) {
     mode: 'onChange',
   });
 
-  function submitForm({email, password}: LoginSchema) {};
+  function submitForm({email, password}: LoginSchema) {
+    console.log('submitForm', email, password);
+    authService.login(email, password)
+      .then((user) => {console.log('user', user)})
+      .catch((error) => {console.log(error)});
+  };
 
   function navigateToSignUpScreen() {
     navigation.navigate('SignUpScreen');
@@ -88,7 +94,7 @@ export function LoginScreen({navigation}: AuthScreenProps<'LoginScreen'>) {
         title="Entrar"
         marginTop="s48"
         disabled={!formState.isValid}
-        onPress={() => handleSubmit(submitForm)}
+        onPress={handleSubmit(submitForm)}
       />
 
       <Button
