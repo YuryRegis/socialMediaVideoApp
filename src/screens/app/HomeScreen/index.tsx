@@ -3,7 +3,7 @@ import {FlatList, ListRenderItemInfo, StyleProp, ViewStyle} from 'react-native';
 
 import {Post, postService} from "@domain";
 import {Screen, PostItem} from "@components";
-
+import {HomeHeader} from "./Components/HomeHeader";
 
 export function HomeScreen() {
     const [postList, setPostList] = useState<Post[]>([]);
@@ -22,6 +22,7 @@ export function HomeScreen() {
                 renderItem={renderItem}
                 keyExtractor={post => post.id}
                 showsVerticalScrollIndicator={false}
+                ListHeaderComponent={HomeHeader}
             />
         </Screen>
     );
