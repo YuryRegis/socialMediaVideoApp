@@ -29,6 +29,7 @@ export function ProfileHeader() {
 }
 
 const $wrapper: BoxProps = {
+  padding: 's16',
   flexDirection: 'row',
   justifyContent: 'space-between',
 };
