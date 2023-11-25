@@ -23,5 +23,7 @@ export function FavoritesHeader() {
 
 const $wrapper: BoxProps = {
   flexDirection: 'row',
+  paddingVertical: 's16',
+  paddingHorizontal: 's16',
   justifyContent: 'space-between',
 };
