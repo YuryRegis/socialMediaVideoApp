@@ -1,6 +1,7 @@
 import React from "react";
 
-import {Box, Screen, Text} from "@components";
+import {Box, Screen} from "@components";
+import {FavoritesHeader} from "./Components/ProfileHeader";
 
 
 export function FavoritesScreen() {
@@ -8,7 +9,7 @@ export function FavoritesScreen() {
     return (
         <Screen>
            <Box justifyContent='center' > 
-                <Text>FavoritesScreen</Text>
+               <FavoritesHeader/>
            </Box>
         </Screen>
     );
