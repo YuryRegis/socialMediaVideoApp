@@ -30,6 +30,7 @@ import {
     SearchIcon,
     SettingsIcon,
     TrashIcon,
+    LogoutIcon
 } from '@icons';
 import {ThemeColors} from '@theme';
   
@@ -77,6 +78,7 @@ export const iconRegistry = {
     search: SearchIcon,
     settings: SettingsIcon,
     trash: TrashIcon,
+    logoutIcon: LogoutIcon
   };
   
 type IconType = typeof iconRegistry;

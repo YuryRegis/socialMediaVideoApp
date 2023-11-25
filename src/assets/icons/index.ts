@@ -29,3 +29,4 @@ export {ProfileIcon} from './ProfileIcon';
 export {SearchIcon} from './SearchIcon';
 export {SettingsIcon} from './SettingsIcon';
 export {TrashIcon} from './TrashIcon';
+export {LogoutIcon} from './LogoutIcon';
