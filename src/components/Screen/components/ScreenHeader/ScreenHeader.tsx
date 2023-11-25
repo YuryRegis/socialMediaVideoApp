@@ -22,7 +22,7 @@ export const ScreenHeader = ({canGoBack, title}: ScreenHeaderProps) => {
           alignItems="center"
           onPress={goBack}>
           <Icon name="arrowLeft" color="primary" size={ICON_SIZE} />
-          {!title && (
+          {!Boolean(title) && (
             <Text preset="paragraphMedium" semiBold marginLeft="s8">
               Voltar
             </Text>
