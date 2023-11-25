@@ -1,14 +1,12 @@
 import React from 'react';
 
 import {Box, BoxProps, Icon, Text, TouchableOpacityBox} from '@components';
-import {useAppSafeArea} from '@hooks';
 import {authService} from '@domain';
 
 export function ProfileHeader() {
-  const {top} = useAppSafeArea();
 
   return (
-    <Box {...$wrapper} style={{paddingTop: top}}>
+    <Box {...$wrapper}>
       <Box flexDirection='row'>
 
         <Text preset='paragraphLarge' bold color='backgroundContrast'>
