@@ -7,6 +7,11 @@ async function getList(): Promise<Post[]> {
   return postList;
 }
 
+async function getFavoriteList(userID: string): Promise<Post[]> {
+  const postFavoriteList = await postApi.getFavoriteList(userID);
+  return postFavoriteList;
+}
+
 async function getListByUserID(userID: string): Promise<Post[]> {
   const postListByUserID = await postApi.getListByUserID(userID);
   return postListByUserID;
@@ -14,5 +19,6 @@ async function getListByUserID(userID: string): Promise<Post[]> {
 
 export const postService = {
   getList,
+  getFavoriteList,
   getListByUserID
 };
