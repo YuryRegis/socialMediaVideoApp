@@ -1,6 +1,7 @@
 import React from "react";
 
 import {Box, Screen, Text} from "@components";
+import {NewPostHeader} from "./Components/ProfileHeader";
 
 
 export function NewPostScreen() {
@@ -8,7 +9,7 @@ export function NewPostScreen() {
     return (
         <Screen>
            <Box justifyContent='center' > 
-                <Text>NewPostScreen</Text>
+                <NewPostHeader/>
            </Box>
         </Screen>
     );
