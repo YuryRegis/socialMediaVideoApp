@@ -1,9 +1,11 @@
 import React from 'react';
 
+import {useAuth} from '@context';
 import {Box, BoxProps, Icon, Text, TouchableOpacityBox} from '@components';
-import {authService} from '@domain';
+
 
 export function ProfileHeader() {
+  const {signOut} = useAuth();
 
   return (
     <Box {...$wrapper}>
@@ -20,7 +22,7 @@ export function ProfileHeader() {
       </Box>
 
       <Box flexDirection="row">
-        <TouchableOpacityBox onPress={authService.logout}>
+        <TouchableOpacityBox onPress={signOut}>
           <Icon size={20} name="logoutIcon" />
         </TouchableOpacityBox>
       </Box>

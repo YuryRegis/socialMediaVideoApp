@@ -9,12 +9,14 @@ import {
   FormTextInput,
   FormPasswordInput,
 } from '@components';
-import {authService} from '@domain';
+// import {authService} from '@domain';
+import {useAuth} from '@context';
 import {AuthScreenProps} from '@routes';
 import {LoginSchema, loginSchema} from './loginSchema';
 
 
 export function LoginScreen({navigation}: AuthScreenProps<'LoginScreen'>) {
+  const {signIn, isLoading} = useAuth();
   
   const {control, formState, handleSubmit} = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
@@ -27,8 +29,8 @@ export function LoginScreen({navigation}: AuthScreenProps<'LoginScreen'>) {
 
   function submitForm({email, password}: LoginSchema) {
     console.log('submitForm', email, password);
-    authService.login(email, password)
-      .then((user) => {console.log('user', user)})
+    signIn(email, password)
+      .then(() => {console.log('user logado')})
       .catch((error) => {console.log(error)});
   };
 
@@ -36,7 +38,9 @@ export function LoginScreen({navigation}: AuthScreenProps<'LoginScreen'>) {
     navigation.navigate('SignUpScreen');
   };
   
-  function navigateToGoogleSignUpScreen() {};
+  function navigateToGoogleSignUpScreen() {
+    // TODO: implement google sign in
+  };
 
   function navigateToForgotPasswordScreen() {
     navigation.navigate('ForgotScreen');
@@ -98,15 +102,16 @@ export function LoginScreen({navigation}: AuthScreenProps<'LoginScreen'>) {
       />
 
       <Button
+        marginTop="s12"
         preset="outline"
         title="Criar conta"
-        marginTop="s12"
+        loading={isLoading}
         onPress={navigateToSignUpScreen}
       />
 
       <Button
-        title="Entrar com Google"
         marginTop="s12"
+        title="Entrar com Google"
         onPress={navigateToGoogleSignUpScreen}
       />
     </Screen>
