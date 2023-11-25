@@ -28,6 +28,7 @@ module.exports = {
           '@infra': './src/infra',
           '@services': './src/services',
           '@test': './src/test',
+          '@context': './src/context/index.ts',
         },
       },
     ],
