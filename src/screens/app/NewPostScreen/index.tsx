@@ -9,7 +9,7 @@ import { PreviewContainer } from "./Components/PreviewContainer";
 
 
 export function NewPostScreen() {
-    const [fileName, setFileName] = React.useState<string>('anfkjadflkajfja;fkjal;kfdjalkdjf;lakjdfl;akjfl;akdsjflakj;flkajd;ff.mp4');
+    const [fileName, setFileName] = React.useState<string>('');
     const {control, formState, handleSubmit} = useForm<NewPostSchema>({
         resolver: zodResolver(newPostSchema),
         defaultValues: {
