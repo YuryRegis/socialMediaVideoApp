@@ -4,6 +4,7 @@ import {Image} from "react-native";
 import {User} from "@domain";
 import {Box, Text} from "@components";
 import {ProfileHeader} from './ProfileHeader';
+import { stringUtils } from "@utils";
 
 
 interface IListHeader {
@@ -17,7 +18,7 @@ export function ListHeader({user}: IListHeader) {
 
             <Box alignItems="center">
                 
-                <Image style={$Image} source={{uri: user.profileURL}}/>
+                <Image style={$Image} source={{uri: stringUtils.getUriOrDefaultUser(user.profileURL)}}/>
 
                 <Box marginTop='s16' justifyContent="center" alignItems="center">
                     <Text preset="headingMedium">

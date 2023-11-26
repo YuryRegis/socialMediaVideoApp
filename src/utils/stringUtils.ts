@@ -13,9 +13,14 @@ function truncateName(name: string, length: number): string {
   return name;
 };
 
+function getUriOrDefaultUser(uri: string): string {
+  const _uri = Boolean(uri) ? uri : 'https://i.ibb.co/Vqyg1Cn/Captura-de-Tela-2023-11-26-a-s-00-57-46.png';
+  return _uri;
+}
 
 export const stringUtils = {
   truncateName,
+  getUriOrDefaultUser,
   capitalizeFirstLetter,
 };
   

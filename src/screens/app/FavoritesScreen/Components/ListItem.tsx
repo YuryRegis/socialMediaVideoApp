@@ -17,7 +17,7 @@ export function ListItem({post}: IListItem) {
       <Box flexDirection="row" alignItems="center" mb="s8">
         
         <Image
-          source={{uri: post.author.profileURL}}
+          source={{uri: stringUtils.getUriOrDefaultUser(post.author.profileURL)}}
           style={{width: 40, height: 40, borderRadius: 14}}
         />
 
