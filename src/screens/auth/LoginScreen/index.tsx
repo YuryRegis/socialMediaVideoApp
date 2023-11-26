@@ -1,6 +1,7 @@
 import React from 'react';
-import {zodResolver} from '@hookform/resolvers/zod';
 import {useForm} from 'react-hook-form';
+import {zodResolver} from '@hookform/resolvers/zod';
+
 
 import {
   Text,
@@ -9,14 +10,15 @@ import {
   FormTextInput,
   FormPasswordInput,
 } from '@components';
-// import {authService} from '@domain';
 import {useAuth} from '@context';
 import {AuthScreenProps} from '@routes';
 import {LoginSchema, loginSchema} from './loginSchema';
+import { ButtonGoogleSignin } from './componentes/ButtonGoogleSignin';
+import { Platform } from 'react-native';
 
 
 export function LoginScreen({navigation}: AuthScreenProps<'LoginScreen'>) {
-  const {signIn, isLoading} = useAuth();
+  const {signIn} = useAuth();
   
   const {control, formState, handleSubmit} = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
@@ -38,10 +40,6 @@ export function LoginScreen({navigation}: AuthScreenProps<'LoginScreen'>) {
     navigation.navigate('SignUpScreen');
   };
   
-  function navigateToGoogleSignUpScreen() {
-    // TODO: implement google sign in
-  };
-
   function navigateToForgotPasswordScreen() {
     navigation.navigate('ForgotScreen');
   };
@@ -105,15 +103,11 @@ export function LoginScreen({navigation}: AuthScreenProps<'LoginScreen'>) {
         marginTop="s12"
         preset="outline"
         title="Criar conta"
-        loading={isLoading}
         onPress={navigateToSignUpScreen}
       />
 
-      <Button
-        marginTop="s12"
-        title="Entrar com Google"
-        onPress={navigateToGoogleSignUpScreen}
-      />
+      {(Platform.OS === 'android') && <ButtonGoogleSignin />}
+
     </Screen>
   );
 };
