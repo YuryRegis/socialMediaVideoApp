@@ -1,79 +1,108 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# RPC - Social Media Video App
 
-# Getting Started
+## Descrição
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+Teste técnico para desenvolvedor mobile (react-native) na empresa RPC (GRPCOM). O desafio consiste em desenvolver um aplicativo de rede social para dispositivos móveis utilizando React Native e TypeScript. O aplicativo permitirá aos usuários compartilharem vídeos, interagirem com outros usuários através de curtidas, comentários e compartilhamentos, além de possuir uma funcionalidade como upload de vídeos.
 
-## Step 1: Start the Metro Server
+## Download Release
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+- Android (em construção)
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Telas
 
+| LOGIN | FEED | UPLOAD | PROFILE | FAVORITES |
+| --- | --- | --- | --- | --- |
+| ![login](https://github.com/YuryRegis/socialMediaVideoApp/assets/29512626/c90d2738-20f1-42f5-9c40-7789ca5d3a71) | ![Simulator Screenshot - iPhone SE (3rd generation) - 2023-11-26 at 09 25 50](https://github.com/YuryRegis/socialMediaVideoApp/assets/29512626/391a9066-5f7d-452d-8b3d-8c93893d8de8) | ![upload](https://github.com/YuryRegis/socialMediaVideoApp/assets/29512626/d1eddd45-43e2-4ded-a2a2-997e34924dfc) | ![profile](https://github.com/YuryRegis/socialMediaVideoApp/assets/29512626/8fc2c40d-ce9d-4b82-8fc6-1c9ab5626571) | ![favorites](https://github.com/YuryRegis/socialMediaVideoApp/assets/29512626/e0b5e4d3-0097-4efe-a104-aeffaca15b76) |
+
+#### Login
+
+- Permitir que os usuários façam login com suas contas existentes ou criem novas contas utilizando e-mail ou autenticação social (por exemplo, Google e Apple).
+
+#### Feed
+
+- Exibir uma lista de vídeos compartilhados por outros usuários em um feed contínuo e rolagem infinita.
+- Cada vídeo deve ter um título e informações do autor (nome de usuário e foto de perfil).
+- Os usuários devem poder interagir com os vídeos através de curtidas, comentários e compartilhamentos.
+
+#### Página de Upload de Vídeo
+
+- Permitir que os usuários façam o upload de vídeos curtos a partir do rolo de câmera do dispositivo ou galeria.
+- Os usuários devem poder adicionar um título e uma descrição ao vídeo antes de fazer o upload.
+
+#### Perfis de Usuário
+
+- Cada usuário deve ter um perfil que exiba suas informações públicas, vídeos enviados e número de seguidores e seguindo.
+
+## Backend
+
+Para este teste, você pode simular a integração com um servidor back-end, usando chamadas assíncronas fictícias (mock) para obter e enviar dados.
+
+### Bibliotecas em destaque
+
+- Zod: Biblioteca de validação de esquema altamente eficiente e tipada.
+- MMKV: Oferece acesso rápido e eficiente para armazenamento de dados no dispositivo.
+- Zustand: Uma biblioteca simples e escalável para gerenciamento de estado no React.
+- Lottie: Biblioteca para renderizar animações vetoriais.
+
+## Contribuição
+
+Contribuições são bem-vindas! Se encontrar algum problema ou desejar implementar melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+
+# Configuração - GoogleServices
+
+Para configurar o GoogleServices no React Native, siga as etapas abaixo:
+---
+### 1. Criar Projeto no Google Cloud Console:
+
+Acesse o [Google Cloud Console](https://console.cloud.google.com) e crie um novo projeto.
+
+### 2. Habilitar APIs Necessárias:
+
+Vá para a seção "APIs & Services" e habilite as APIs necessárias, como Google Sign-In, Firebase, entre outras dependendo das funcionalidades que deseja utilizar.
+
+### 3. Gerar Arquivo GoogleServices:
+Para **aplicativos Android**, baixe o arquivo `google-services.json` do Console do Firebase após registrar seu aplicativo Android. Para **aplicativos iOS**, baixe o arquivo `GoogleService-Info.plist`.
+
+### 4. Configuração no Projeto React Native:
+
+No diretório raiz do projeto:
+   - Para Android: Coloque o arquivo `google-services.json` dentro do diretório `android/app`.
+   - Para iOS: Coloque o arquivo `GoogleService-Info.plist` dentro do diretório `ios/`.
+
+### 5. Configuração Adicional:
+
+Siga as instruções específicas do Firebase/Google para configurar quaisquer outras etapas necessárias para autenticação, uso de serviços, etc.
+
+
+# Configuração - React Native:
+
+## 1. Instalando dependências:
 ```bash
-# using npm
-npm start
-
-# OR using Yarn
+yarn install
+```
+Se usar simulador iOS:
+```bash
+cd ios && pod install && cd ..
+```
+## 2. Buildadndo app no simulador
+Android
+```bash
+yarn android
+```
+iOS
+```bash
+yarn ios
+```
+### Inicializando projeto
+```bash
 yarn start
 ```
 
-## Step 2: Start your Application
+# Saiba mais
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+Mis informações e documentações sobre Firebase e React Native:
 
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- [Frebase](https//firebase.google.com/docs) - Firebase docs.
+- [Iniciando projeto RN ](https://reactnative.dev/docs/getting-started) - React Native docs.
+- [Configuração de ambiente](https://reactnative.dev/docs/environment-setup) - Configurando ambiente React Native.
