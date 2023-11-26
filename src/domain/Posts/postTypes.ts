@@ -13,6 +13,12 @@ export interface Post {
   favoriteCount: number;
 }
 
+export interface UserPost {
+  title: string;
+  description: string;
+  imageURL: string;
+}
+
 export interface PostAPI {
   id: number;
   title: string;
