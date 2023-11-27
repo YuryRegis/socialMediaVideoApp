@@ -8,9 +8,9 @@ export {PasswordInput} from './PasswordInput';
 export {Box, TouchableOpacityBox} from './Box';
 export {ActivityIndicator} from './ActivityIndicator';
 export {FormTextInput, FormPasswordInput} from './Form';
+export {FooterListComponent} from './FooterListComponent';
 export {PostImage} from './PostItem/components/PostImage';
 export {PostHeader} from './PostItem/components/PostHeader';
-
 
 export type {TextProps} from './Text/TextProps';
 export type {BoxProps, TouchableOpacityBoxProps} from './Box';
