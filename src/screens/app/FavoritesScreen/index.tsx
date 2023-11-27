@@ -1,20 +1,39 @@
 import React, { useEffect, useState } from "react";
-import {FlatList, ListRenderItemInfo, StyleProp, ViewStyle} from "react-native";
+import {FlatList, ListRenderItemInfo, RefreshControl, StyleProp, ViewStyle} from "react-native";
 
-import {Screen} from "@components";
-import { ListItem } from "./Components/ListItem";
-import {Post, postService, userMock} from "@domain";
+import {Post} from "@domain";
+import {ListItem} from "./Components/ListItem";
+import {useAuth, useFavoriteListStore} from '@context';
+import {Screen, FooterListComponent} from "@components";
 import {FavoritesHeader} from "./Components/ProfileHeader";
 
 
 export function FavoritesScreen() {
-    const [favorites, setfavorites] = useState<Post[]>([]);
-
+    const [page, setPage] = useState(1);
+    
+    const {authData} = useAuth();
+    const favorites = useFavoriteListStore(state => state);
+    
     useEffect(() => {
-        postService.getFavoriteList(userMock.id).then((data) => {
-            setfavorites(data);
-        });
     }, []);
+
+    function getMoreData() {
+        if(favorites.isLoading) return;
+        if(favorites.nextPage) {
+        favorites.getFavoritList({
+            userID: authData?.user.id as string, page
+        });
+        setPage(page + 1);
+        }
+    };
+
+    function refreshHandler() {
+        setPage(2);
+        favorites.resetState();
+        favorites.getFavoritList({
+            userID: authData?.user.id as string, page: 1
+        });
+    }
 
     function renderItem({item}: ListRenderItemInfo<Post>) {
         return <ListItem post={item} />;
@@ -23,10 +42,19 @@ export function FavoritesScreen() {
     return (
         <Screen style={$screen}>
             <FlatList
-                data={favorites}
                 renderItem={renderItem}
+                onEndReached={getMoreData}
+                onEndReachedThreshold={0.1}
+                data={favorites.favoritList}
                 keyExtractor={(item) => item.id}
-                ListHeaderComponent={FavoritesHeader}/>
+                ListHeaderComponent={FavoritesHeader}
+                refreshControl={
+                    <RefreshControl refreshing={favorites.isLoading} onRefresh={refreshHandler} />
+                }
+                ListFooterComponent={
+                  FooterListComponent({postList: favorites.favoritList, isLoading: favorites.isLoading})
+                }
+            />
         </Screen>
     );
 }
@@ -35,4 +63,4 @@ const $screen: StyleProp<ViewStyle> = {
     paddingTop: 0,
     paddingBottom: 0,
     paddingHorizontal: 0,
-  };
+};

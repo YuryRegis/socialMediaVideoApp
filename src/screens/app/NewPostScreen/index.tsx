@@ -9,12 +9,12 @@ import {NewPostHeader} from "./Components/ProfileHeader";
 import {NewPostSchema, newPostSchema} from "./newPostSchema";
 import {PreviewContainer} from "./Components/PreviewContainer";
 import {Box, Button, FormTextInput, Screen} from "@components";
-import { add } from "date-fns";
 
 
 export function NewPostScreen() {
-    const {imageURL, title, description, setTitle, setDescription} = useUserPostStore(state => state);
+    const {imageURL, resetState} = useUserPostStore(state => state);
     const {addToPostList} = usePostListStore(state => state);
+    
     const {control, formState, handleSubmit, reset} = useForm<NewPostSchema>({
         resolver: zodResolver(newPostSchema),
         defaultValues: {
@@ -27,13 +27,11 @@ export function NewPostScreen() {
     async function submitForm({title, description}: NewPostSchema) {
         const _description = description || '';
         const response = await postService.createPost({title, description: _description, imageURL});
-
-        setTitle(title);
-        setDescription(_description);
         
         addToPostList(response);
 
         Alert.alert('Post enviado com sucesso!');
+        resetState();
         reset();
     };
 

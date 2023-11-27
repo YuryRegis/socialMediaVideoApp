@@ -1,13 +1,14 @@
 import React from 'react';
 
 import {Post} from '@domain';
+import {usePostListStore, useFavoriteListStore} from '@context';
 import {Box, TouchableOpacityBox, Icon, IconProps, Text} from '@components';
-import { usePostListStore } from '@context';
 
 
 export function PostActions({post}: {post: Post}) {
   const {id, reactionCount, commentCount, favoriteCount, isFavorited} = post;
   const {likePost, favoirtePost} = usePostListStore();
+  const {addTofavoritList} = useFavoriteListStore();
 
   function likePostHandler() {
     likePost(id);
@@ -19,7 +20,9 @@ export function PostActions({post}: {post: Post}) {
 
   function favoritePost() {
     favoirtePost(id);
+    addTofavoritList(post);
   }
+
   return (
     <Box flexDirection="row" mt="s16">
       <Item

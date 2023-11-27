@@ -3,8 +3,9 @@ import {FlatList, ListRenderItemInfo, RefreshControl, StyleProp, ViewStyle} from
 
 import {Post} from "@domain";
 import {usePostListStore} from "@context";
-import {Screen, Box, PostItem, ActivityIndicator} from "@components";
+import {Screen, Box, PostItem, FooterListComponent} from "@components";
 import {HomeHeader} from "./Components/HomeHeader";
+
 
 export function HomeScreen() {
     const [page, setPage] = useState(1);
@@ -39,26 +40,18 @@ export function HomeScreen() {
                 renderItem={renderItem}
                 keyExtractor={post => post.id}
                 onEndReached={getMoreData}
+                onEndReachedThreshold={0.1}
                 showsVerticalScrollIndicator={false}
                 ListHeaderComponent={HomeHeader}
-                ListFooterComponent={FooterComponent}
+                ListFooterComponent={
+                  FooterListComponent({postList, isLoading})
+                }
                 refreshControl={
                   <RefreshControl refreshing={isLoading} onRefresh={refreshHandler} />
                 }
             />
         </Screen>
     );
-}
-
-function FooterComponent() {
-  const {postList, isLoading} = usePostListStore();
-
-  const shouldRender = (postList.length === 0) || isLoading;
-  return (
-    <Box paddingBottom="s24">
-      {shouldRender && <ActivityIndicator color="gray2" size="large"/>}
-    </Box>
-  );
 }
 
 const $screen: StyleProp<ViewStyle> = {
