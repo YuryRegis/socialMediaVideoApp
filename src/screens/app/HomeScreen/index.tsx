@@ -43,9 +43,7 @@ export function HomeScreen() {
                 onEndReachedThreshold={0.1}
                 showsVerticalScrollIndicator={false}
                 ListHeaderComponent={HomeHeader}
-                ListFooterComponent={
-                  FooterListComponent({postList, isLoading})
-                }
+                ListFooterComponent={FooterListComponent({isLoading})}
                 refreshControl={
                   <RefreshControl refreshing={isLoading} onRefresh={refreshHandler} />
                 }

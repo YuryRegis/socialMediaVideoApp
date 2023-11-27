@@ -48,11 +48,11 @@ export function FavoritesScreen() {
                 data={favorites.favoritList}
                 keyExtractor={(item) => item.id}
                 ListHeaderComponent={FavoritesHeader}
+                ListFooterComponent={
+                  FooterListComponent({isLoading: favorites.isLoading})
+                }
                 refreshControl={
                     <RefreshControl refreshing={favorites.isLoading} onRefresh={refreshHandler} />
-                }
-                ListFooterComponent={
-                  FooterListComponent({postList: favorites.favoritList, isLoading: favorites.isLoading})
                 }
             />
         </Screen>
