@@ -1,7 +1,5 @@
 import {create} from 'zustand';
-
-import {Post} from '@domain';
-import {postService} from '@domain';
+import {Post, postService} from '@domain';
 
 
 type Action = {

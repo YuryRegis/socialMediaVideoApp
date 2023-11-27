@@ -4,15 +4,15 @@ import {Post, UserPost} from './postTypes';
 
 
 type getListRespnse = Promise<{list: Post[], nextPage?: number}>;
-
 async function getList(page: number): getListRespnse {
   const response = await postApi.getList(page);
   return {list: response.list, nextPage: response.nextPage};
 }
 
-async function getFavoriteList(userID: string): Promise<Post[]> {
-  const postFavoriteList = await postApi.getFavoriteList(userID);
-  return postFavoriteList;
+type getFavoriteListProps = {userID: string, page: number};
+async function getFavoriteList(props: getFavoriteListProps) {
+  const response = await postApi.getFavoriteList(props);
+  return {list: response.list, nextPage: response.nextPage};
 }
 
 async function getListByUserID(userID: string): Promise<Post[]> {

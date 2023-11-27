@@ -12,9 +12,14 @@ async function getList(page: number): Promise<{list: Post[], nextPage?: number}>
   return {list: postListMock.slice(initial, offset), nextPage: nextPage};
 }
 
-async function getFavoriteList(userID: string): Promise<Post[]> {
+type getFavoriteListProps = {userID: string, page: number};
+async function getFavoriteList({page, userID}: getFavoriteListProps) {
+  const offset = page * 5;
+  const initial = (page - 1) * 5;
+  const nextPage = offset <= postListMock.length ? page + 1 : undefined;
+
   await new Promise(resolve => setTimeout(() => resolve(`${userID}`), 1500));
-  return postListMock;
+  return {list: postListByIdMock.slice(initial, offset), nextPage: nextPage};
 }
 
 async function getListByUserID(userID: string): Promise<Post[]> {
