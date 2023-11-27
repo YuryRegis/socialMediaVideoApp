@@ -1,8 +1,7 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
-import {
-  AuthStackParamList,
-} from '@routes';
+import {AuthStackParamList} from './AuthStack';
+import {AppHomeStackParamList} from './AppHomeStack';
 
 
 declare global {
@@ -11,6 +10,8 @@ declare global {
   }
 }
 
+export type AppScreenProps<RouteName extends keyof AppHomeStackParamList> =
+  NativeStackScreenProps<AppHomeStackParamList, RouteName>;
+
 export type AuthScreenProps<RouteName extends keyof AuthStackParamList> =
   NativeStackScreenProps<AuthStackParamList, RouteName>;
-

@@ -1,6 +1,6 @@
 // import { AsyncStorageMMKV } from '@services';
 import {postApi} from './postApi';
-import {Post, UserPost} from './postTypes';
+import {Post, UserPost, PostComment} from './postTypes';
 
 
 type getListRespnse = Promise<{list: Post[], nextPage?: number}>;
@@ -13,6 +13,22 @@ type getFavoriteListProps = {userID: string, page: number};
 async function getFavoriteList(props: getFavoriteListProps) {
   const response = await postApi.getFavoriteList(props);
   return {list: response.list, nextPage: response.nextPage};
+}
+
+type getPostCommentsProps = {postId: string, page: number};
+async function getPostComments(props: getPostCommentsProps) {
+  const {list, nextPage} = await postApi.getPostComments(props);
+  return {list, nextPage};
+}
+
+type addCommentToPostProps = {
+  text: string, 
+  postID: string, 
+  author: { id: string, profileURL: string, username: string }
+};
+async function addCommentToPost(props: addCommentToPostProps): Promise<PostComment> {
+  const postComment = await postApi.addCommentToPost(props);
+  return postComment;
 }
 
 async function getListByUserID(userID: string): Promise<Post[]> {
@@ -37,9 +53,11 @@ async function createPost(post: UserPost): Promise<Post> {
 
 export const postService = {
   getList,
+  createPost,
   likeAnPost,
   favoritAnPost,
-  createPost,
+  getPostComments,
   getFavoriteList,
-  getListByUserID
+  getListByUserID,
+  addCommentToPost
 };

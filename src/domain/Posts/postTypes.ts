@@ -1,3 +1,5 @@
+import {User} from '../User/userTypes';
+
 export interface Post {
   id: string;
   title: string;
@@ -13,6 +15,12 @@ export interface Post {
   favoriteCount: number;
   isLiked: boolean;
   isFavorited: boolean;
+}
+
+export interface PostComment {
+  id: string;
+  text: string;
+  author: Pick<User, 'id' | 'username' | 'profileURL'>;
 }
 
 export interface UserPost {

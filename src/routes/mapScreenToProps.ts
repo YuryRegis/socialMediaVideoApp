@@ -11,7 +11,7 @@ export const mapScreenToProps: Record<
     };
   }
 > = {
-  HomeScreen: {
+  Feed: {
     label: 'Início',
     icon: {
       focused: 'homeFill',

@@ -1,15 +1,18 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {HomeScreen} from '@screens';
+import {Post} from '@domain';
+import {HomeScreen, PostScreen} from '@screens';
 
-export type AppStackParamList = {
+
+export type AppHomeStackParamList = {
     HomeScreen: undefined;
+    PostScreen: {post: Post};
 };
-const Stack = createNativeStackNavigator<AppStackParamList>();
 
+const Stack = createNativeStackNavigator<AppHomeStackParamList>();
 
-export function AppStack() {
+export function AppHomeStack() {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -18,6 +21,7 @@ export function AppStack() {
       }}
       initialRouteName="HomeScreen">
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="PostScreen" component={PostScreen} />
     </Stack.Navigator>
   );
 };

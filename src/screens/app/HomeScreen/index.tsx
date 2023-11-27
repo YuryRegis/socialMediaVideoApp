@@ -3,7 +3,7 @@ import {FlatList, ListRenderItemInfo, RefreshControl, StyleProp, ViewStyle} from
 
 import {Post} from "@domain";
 import {usePostListStore} from "@context";
-import {Screen, Box, PostItem, FooterListComponent} from "@components";
+import {Screen, PostItem, FooterListComponent} from "@components";
 import {HomeHeader} from "./Components/HomeHeader";
 
 
@@ -20,7 +20,6 @@ export function HomeScreen() {
     }
 
     function getMoreData() {
-      if(isLoading) return;
       if(nextPage) {
         getPostList(page);
         setPage(page + 1);
@@ -29,7 +28,7 @@ export function HomeScreen() {
 
     function refreshHandler() {
       setPage(2);
-      resetState();
+      resetState("postList");
       getPostList(1);
     }
 
@@ -38,11 +37,11 @@ export function HomeScreen() {
             <FlatList
                 data={postList}
                 renderItem={renderItem}
-                keyExtractor={post => post.id}
                 onEndReached={getMoreData}
                 onEndReachedThreshold={0.1}
-                showsVerticalScrollIndicator={false}
+                keyExtractor={post => post.id}
                 ListHeaderComponent={HomeHeader}
+                showsVerticalScrollIndicator={false}
                 ListFooterComponent={FooterListComponent({isLoading})}
                 refreshControl={
                   <RefreshControl refreshing={isLoading} onRefresh={refreshHandler} />

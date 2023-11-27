@@ -1,5 +1,6 @@
 import {userMock} from '@domain';
-import {Post, UserPost} from './postTypes';
+import {Post, PostComment, UserPost} from './postTypes';
+import {commentsMock} from './commentsMock';
 import {postListMock, postListByIdMock} from './postListMock';
 
 
@@ -26,6 +27,34 @@ async function getListByUserID(userID: string): Promise<Post[]> {
   await new Promise(resolve => setTimeout(() => resolve(`${userID}`), 1500));
   return postListByIdMock;
 }
+
+type getPostCommentsProps = {postId: string, page: number};
+async function getPostComments({page, postId}: getPostCommentsProps) {
+  const offset = page * 5;
+  const initial = (page - 1) * 5;
+  const nextPage = offset <= postListMock.length ? page + 1 : undefined;
+
+  await new Promise(resolve => setTimeout(() => resolve(`${postId}`), 300));
+  return {list: commentsMock.slice(initial, offset), nextPage: nextPage};
+}
+
+type addCommentToPostProps = {
+  text: string, 
+  postID: string, 
+  author: { id: string, profileURL: string, username: string }
+};
+async function addCommentToPost({postID, text, author}: addCommentToPostProps): Promise<PostComment> {
+  const comment = await new Promise<PostComment>(resolve => setTimeout(() => resolve(({
+    id: Math.random().toString(),
+    text,
+    author: {
+      id: author.id,
+      profileURL: author.profileURL,
+      username: author.username
+    },
+  })), 500));
+  return comment;
+};
 
 async function likeAnPost(postID: string): Promise<Post> {
   const post = postListMock.find(post => post.id === postID);
@@ -66,6 +95,8 @@ async function createPost(post: UserPost): Promise<Post> {
 
 export const postApi = {
   getFavoriteList,
+  addCommentToPost,
+  getPostComments,
   getListByUserID,
   favoritAnPost,
   createPost,

@@ -1,4 +1,5 @@
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
 
 import {Post} from '@domain';
 import {usePostListStore, useFavoriteListStore} from '@context';
@@ -10,12 +11,14 @@ export function PostActions({post}: {post: Post}) {
   const {likePost, favoirtePost} = usePostListStore();
   const {addTofavoritList} = useFavoriteListStore();
 
+  const {navigate} = useNavigation();
+
   function likePostHandler() {
     likePost(id);
   }
 
   function navigateToComments() {
-    //TODO: Implement navigate to comments
+    navigate('PostScreen', {post});
   }
 
   function favoritePost() {

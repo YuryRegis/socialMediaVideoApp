@@ -1,5 +1,6 @@
 import React from 'react';
 import {ActivityIndicator, Box} from '@components';
+import { Platform } from 'react-native';
 
 
 interface IFooterListComponent {
@@ -8,9 +9,11 @@ interface IFooterListComponent {
 
 export function FooterListComponent({isLoading}: IFooterListComponent) {
     
-    return (
-      <Box paddingBottom="s24">
-        {isLoading && <ActivityIndicator color="gray2" size="large"/>}
-      </Box>
-    );
-  }
+  return (
+    <Box marginBottom="s48">
+      {(isLoading && (Platform.OS === 'ios')) && 
+        <ActivityIndicator color="gray2" size="large"/>
+      }
+    </Box>
+  );
+};
