@@ -19,6 +19,7 @@ export function HomeScreen() {
     }
 
     function getMoreData() {
+      if(isLoading) return;
       if(nextPage) {
         getPostList(page);
         setPage(page + 1);

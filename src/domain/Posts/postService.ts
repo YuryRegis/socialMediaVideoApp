@@ -1,6 +1,5 @@
 // import { AsyncStorageMMKV } from '@services';
 import {postApi} from './postApi';
-import {usePostListStore} from '@context';
 import {Post, UserPost} from './postTypes';
 
 
@@ -33,8 +32,6 @@ async function favoritAnPost(postID: string): Promise<Post> {
 
 async function createPost(post: UserPost): Promise<Post> {
   const newPost = await postApi.createPost(post);
-  const {addToPostList} = usePostListStore(state => state);
-  addToPostList(newPost);
   return newPost;
 }
 
