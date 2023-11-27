@@ -17,7 +17,7 @@ Teste técnico para desenvolvedor mobile (react-native) na empresa RPC (GRPCOM).
 #### Login
 
 - Permitir que os usuários façam login com suas contas existentes ou criem novas contas utilizando e-mail ou autenticação social (por exemplo, Google e Apple).
-
+##### *OBS:. você pode logar com sua conta google ou usar a conta mockada (email: _user@mail.com_, senha: _123_)*
 #### Feed
 
 - Exibir uma lista de vídeos compartilhados por outros usuários em um feed contínuo e rolagem infinita.
