@@ -1,18 +1,18 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 
-import {permissionService} from '@services';
+import {Alert} from "react-native";
+import {postService} from "@domain";
+import {useUserPostStore} from "@context";
 import {NewPostHeader} from "./Components/ProfileHeader";
 import {NewPostSchema, newPostSchema} from "./newPostSchema";
 import {PreviewContainer} from "./Components/PreviewContainer";
 import {Box, Button, FormTextInput, Screen} from "@components";
-import { useUserPostStore } from "@context";
 
 
 export function NewPostScreen() {
-    const {checkPermission} = permissionService;
-    const imageURL = useUserPostStore(state => state);
+    const {imageURL, setTitle, setDescription} = useUserPostStore(state => state);
 
     const {control, formState, handleSubmit, reset} = useForm<NewPostSchema>({
         resolver: zodResolver(newPostSchema),
@@ -23,14 +23,17 @@ export function NewPostScreen() {
         mode: 'onChange',
       });
     
-    useEffect(() => {
-        checkPermission();
-    }, [checkPermission]);  
-
-    function submitForm({title, description}: NewPostSchema) {
-        console.log('submitForm', title, description);
-        // TODO - connect to post service
+    async function submitForm({title, description}: NewPostSchema) {
+        const _description = description || '';
         
+        setTitle(title);
+        setDescription(_description);
+
+        await postService.createPost({
+            imageURL, title, description: _description
+        });
+
+        Alert.alert('Post enviado com sucesso!');
         reset();
     };
 

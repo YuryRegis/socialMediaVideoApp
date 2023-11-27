@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {Dimensions, Image, ViewStyle} from "react-native";
 
 import {stringUtils} from '@utils';
