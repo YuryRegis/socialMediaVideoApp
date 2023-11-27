@@ -8,7 +8,7 @@ import {Box, TouchableOpacityBox, Icon, IconProps, Text} from '@components';
 
 export function PostActions({post}: {post: Post}) {
   const {id, reactionCount, commentCount, favoriteCount, isFavorited} = post;
-  const {likePost, favoirtePost} = usePostListStore();
+  const {likePost, favoritePoste} = usePostListStore();
   const {addTofavoritList} = useFavoriteListStore();
 
   const {navigate} = useNavigation();
@@ -22,7 +22,7 @@ export function PostActions({post}: {post: Post}) {
   }
 
   function favoritePost() {
-    favoirtePost(id);
+    favoritePoste(id);
     addTofavoritList(post);
   }
 
