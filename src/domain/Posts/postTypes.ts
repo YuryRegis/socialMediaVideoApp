@@ -11,6 +11,8 @@ export interface Post {
   reactionCount: number;
   commentCount: number;
   favoriteCount: number;
+  isLiked: boolean;
+  isFavorited: boolean;
 }
 
 export interface UserPost {
@@ -29,6 +31,7 @@ export interface PostAPI {
   is_activated: boolean;
   created_at: string;
   updated_at: string;
+  is_liked: boolean;
   user: {
     id: number;
     first_name: string;

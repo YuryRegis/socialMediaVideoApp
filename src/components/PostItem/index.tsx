@@ -13,16 +13,14 @@ interface IPostItemProps {
 }
 
 
-export function PostItem({post}: IPostItemProps) {
+export function PostItem({post}: IPostItemProps) {  
   return (
     <Box paddingHorizontal="s24" marginBottom="s24">
       <PostHeader author={post.author} />
       <PostImage imageURL={post.imageURL} />
-      <PostActions
-        commentCount={post.commentCount}
-        favoriteCount={post.favoriteCount}
-        reactionCount={post.reactionCount}
-      />
+      
+      <PostActions post={post}/>
+      
       <PostBottom 
         title={post.title}
         author={post.author}

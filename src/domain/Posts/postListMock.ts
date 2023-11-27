@@ -14,6 +14,8 @@ export const postListMock: Post[] = [
       reactionCount: 10,
       commentCount: 5,
       favoriteCount: 2,
+      isLiked: false,
+      isFavorited: false
     },
     {
       id: 'e2c56db5-67f1-44ab-94a3-9877efdc76a4',
@@ -28,6 +30,8 @@ export const postListMock: Post[] = [
       reactionCount: 15,
       commentCount: 8,
       favoriteCount: 3,
+      isLiked: false,
+      isFavorited: false
     },
     {
       id: '3f251f7d-a6e8-4823-bc9b-97d0356d1dcf',
@@ -42,6 +46,8 @@ export const postListMock: Post[] = [
       reactionCount: 20,
       commentCount: 12,
       favoriteCount: 5,
+      isLiked: false,
+      isFavorited: false
     },
     {
       id: '8aa14f92-af48-4f3a-897c-ec569d25bb30',
@@ -56,6 +62,8 @@ export const postListMock: Post[] = [
       reactionCount: 5,
       commentCount: 3,
       favoriteCount: 1,
+      isLiked: false,
+      isFavorited: false
     },
     {
       id: '6927c54e-df67-4fc0-a0ef-14d5ab6de58d',
@@ -70,6 +78,8 @@ export const postListMock: Post[] = [
       reactionCount: 0,
       commentCount: 0,
       favoriteCount: 0,
+      isLiked: false,
+      isFavorited: false
     },
     {
       id: 'bd8de917-b256-402e-94fc-eb6ef1700a85',
@@ -84,6 +94,8 @@ export const postListMock: Post[] = [
       reactionCount: 2,
       commentCount: 1,
       favoriteCount: 0,
+      isLiked: false,
+      isFavorited: false
     },
     {
       id: '7b3b6e3d-14e2-4876-baf5-aeaed7b8a5ee',
@@ -98,6 +110,8 @@ export const postListMock: Post[] = [
       reactionCount: 8,
       commentCount: 4,
       favoriteCount: 1,
+      isLiked: false,
+      isFavorited: false
     },
     {
       id: '15b13005-8494-45d4-85e7-cbdf1aa5bc7d',
@@ -112,6 +126,8 @@ export const postListMock: Post[] = [
       reactionCount: 25,
       commentCount: 10,
       favoriteCount: 4,
+      isLiked: false,
+      isFavorited: false
     },
     {
       id: 'e3f6fe02-91e5-42a1-a8b2-62b29b2f3777',
@@ -126,6 +142,8 @@ export const postListMock: Post[] = [
       reactionCount: 35,
       commentCount: 0,
       favoriteCount: 0,
+      isLiked: false,
+      isFavorited: false
     },
 ];
 
@@ -143,6 +161,8 @@ export const postListByIdMock: Post[] = [
     reactionCount: 10,
     commentCount: 5,
     favoriteCount: 2,
+    isLiked: false,
+    isFavorited: false
   },
   {
     id: '2',
@@ -157,6 +177,8 @@ export const postListByIdMock: Post[] = [
     reactionCount: 50,
     commentCount: 20,
     favoriteCount: 8,
+    isLiked: false,
+    isFavorited: false
   },
   {
     id: '3',
@@ -171,6 +193,8 @@ export const postListByIdMock: Post[] = [
     reactionCount: 25,
     commentCount: 15,
     favoriteCount: 5,
+    isLiked: false,
+    isFavorited: false
   },
   {
     id: '4',
@@ -185,6 +209,8 @@ export const postListByIdMock: Post[] = [
     reactionCount: 40,
     commentCount: 18,
     favoriteCount: 7,
+    isLiked: false,
+    isFavorited: false
   },
   {
     id: '5',
@@ -199,6 +225,8 @@ export const postListByIdMock: Post[] = [
     reactionCount: 35,
     commentCount: 22,
     favoriteCount: 6,
+    isLiked: false,
+    isFavorited: false
   },
   {
     id: '6',
@@ -213,6 +241,8 @@ export const postListByIdMock: Post[] = [
     reactionCount: 30,
     commentCount: 12,
     favoriteCount: 4,
+    isLiked: false,
+    isFavorited: false
   },
   {
     id: '7',
@@ -227,6 +257,8 @@ export const postListByIdMock: Post[] = [
     reactionCount: 48,
     commentCount: 25,
     favoriteCount: 9,
+    isLiked: false,
+    isFavorited: false
   },
   {
     id: '8',
@@ -241,6 +273,8 @@ export const postListByIdMock: Post[] = [
     reactionCount: 55,
     commentCount: 30,
     favoriteCount: 11,
+    isLiked: false,
+    isFavorited: false
   },
   {
     id: '9',
@@ -255,6 +289,8 @@ export const postListByIdMock: Post[] = [
     reactionCount: 42,
     commentCount: 28,
     favoriteCount: 10,
+    isLiked: false,
+    isFavorited: false
   },
   {
     id: '10',
@@ -269,6 +305,8 @@ export const postListByIdMock: Post[] = [
     reactionCount: 38,
     commentCount: 20,
     favoriteCount: 7,
+    isLiked: false,
+    isFavorited: false
   },
   {
     id: '11',
@@ -283,5 +321,7 @@ export const postListByIdMock: Post[] = [
     reactionCount: 60,
     commentCount: 35,
     favoriteCount: 15,
-  },
+    isLiked: false,
+    isFavorited: false
+  }
 ];

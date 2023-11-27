@@ -1,18 +1,34 @@
 import React, {useEffect, useState} from "react";
-import {FlatList, ListRenderItemInfo, StyleProp, ViewStyle} from 'react-native';
+import {FlatList, ListRenderItemInfo, RefreshControl, StyleProp, ViewStyle} from 'react-native';
 
-import {Post, postService} from "@domain";
-import {Screen, PostItem} from "@components";
+import {Post} from "@domain";
+import {usePostListStore} from "@context";
+import {Screen, Box, PostItem, ActivityIndicator} from "@components";
 import {HomeHeader} from "./Components/HomeHeader";
 
 export function HomeScreen() {
-    const [postList, setPostList] = useState<Post[]>([]);
+    const [page, setPage] = useState(1);
+    const {getPostList, nextPage, postList, isLoading, resetState} = usePostListStore();
+
     useEffect(() => {
-      postService.getList().then(list => setPostList(list));
+      getMoreData()
     }, []);  
 
     function renderItem({item}: ListRenderItemInfo<Post>) {
       return <PostItem post={item} />;
+    }
+
+    function getMoreData() {
+      if(nextPage) {
+        getPostList(page);
+        setPage(page + 1);
+      }
+    };
+
+    function refreshHandler() {
+      setPage(2);
+      resetState();
+      getPostList(1);
     }
 
     return (
@@ -21,11 +37,27 @@ export function HomeScreen() {
                 data={postList}
                 renderItem={renderItem}
                 keyExtractor={post => post.id}
+                onEndReached={getMoreData}
                 showsVerticalScrollIndicator={false}
                 ListHeaderComponent={HomeHeader}
+                ListFooterComponent={FooterComponent}
+                refreshControl={
+                  <RefreshControl refreshing={isLoading} onRefresh={refreshHandler} />
+                }
             />
         </Screen>
     );
+}
+
+function FooterComponent() {
+  const {postList, isLoading} = usePostListStore();
+
+  const shouldRender = (postList.length === 0) || isLoading;
+  return (
+    <Box paddingBottom="s24">
+      {shouldRender && <ActivityIndicator color="gray2" size="large"/>}
+    </Box>
+  );
 }
 
 const $screen: StyleProp<ViewStyle> = {

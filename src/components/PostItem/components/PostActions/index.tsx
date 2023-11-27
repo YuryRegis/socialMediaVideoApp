@@ -2,17 +2,15 @@ import React from 'react';
 
 import {Post} from '@domain';
 import {Box, TouchableOpacityBox, Icon, IconProps, Text} from '@components';
+import { usePostListStore } from '@context';
 
-type PostActionsProps = Pick<Post, 'reactionCount' | 'commentCount' | 'favoriteCount'>;
 
+export function PostActions({post}: {post: Post}) {
+  const {id, reactionCount, commentCount, favoriteCount, isFavorited} = post;
+  const {likePost, favoirtePost} = usePostListStore();
 
-export function PostActions({
-  reactionCount,
-  commentCount,
-  favoriteCount,
-}: PostActionsProps) {
-  function likePost() {
-    //TODO: Implement like post
+  function likePostHandler() {
+    likePost(id);
   }
 
   function navigateToComments() {
@@ -20,13 +18,13 @@ export function PostActions({
   }
 
   function favoritePost() {
-    // TODO: Implement favorite post
+    favoirtePost(id);
   }
   return (
     <Box flexDirection="row" mt="s16">
       <Item
-        marked
-        onPress={likePost}
+        marked={post.isLiked}
+        onPress={likePostHandler}
         text={reactionCount}
         icon={{
           default: 'heart',
@@ -34,7 +32,7 @@ export function PostActions({
         }}
       />
       <Item
-        marked={false}
+        marked={(commentCount > 0)}
         onPress={navigateToComments}
         text={commentCount}
         icon={{
@@ -43,7 +41,7 @@ export function PostActions({
         }}
       />
       <Item
-        marked={false}
+        marked={isFavorited}
         onPress={favoritePost}
         text={favoriteCount}
         icon={{
@@ -64,6 +62,7 @@ interface ItemProps {
     marked: IconProps['name'];
   };
 }
+
 function Item({onPress, icon, marked, text}: ItemProps) {
   return (
     <TouchableOpacityBox
