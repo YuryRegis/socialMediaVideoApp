@@ -29,6 +29,7 @@ module.exports = {
           '@services': './src/services',
           '@test': './src/test',
           '@context': './src/context/index.ts',
+          '@videos': './src/assets/videos',
         },
       },
     ],
