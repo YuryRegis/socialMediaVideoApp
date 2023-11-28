@@ -16,7 +16,7 @@ export function PostHeader({author}: PostHeaderProps) {
         style={{width: 32, height: 32, borderRadius: 14}}
       />
       <Text ml="s12" semiBold preset="paragraphMedium">
-        {author.userName}
+        {`@${author.userName}`}
       </Text>
     </Box>
   );

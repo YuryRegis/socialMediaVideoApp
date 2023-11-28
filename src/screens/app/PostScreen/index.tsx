@@ -15,7 +15,7 @@ export function PostScreen({route}: AppScreenProps<'PostScreen'>) {
     
     return (
         <Screen style={[$screen, {marginTop: - (defaultTop+24)}]}>
-            <StatusBar translucent backgroundColor="transparent" />
+            <StatusBar translucent backgroundColor="transparent" barStyle={"dark-content"}/>
 
             <CommentList post={post} />           
         </Screen>

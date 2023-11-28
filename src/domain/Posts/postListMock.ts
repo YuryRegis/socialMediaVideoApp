@@ -2,7 +2,7 @@ import {Post} from './postTypes';
 
 export const postListMock: Post[] = [
     {
-      id: '1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed',
+      id: 'post_1',
       description: 'Este é o meu primeiro post!',
       title: 'Um novo começo nas redes sociais.',
       author: {
@@ -18,7 +18,7 @@ export const postListMock: Post[] = [
       isFavorited: false
     },
     {
-      id: 'e2c56db5-67f1-44ab-94a3-9877efdc76a4',
+      id: 'post_2',
       description: 'Confira esta foto incrível!',
       title: 'Uma foto que merece ser vista.',
       author: {
@@ -34,7 +34,7 @@ export const postListMock: Post[] = [
       isFavorited: false
     },
     {
-      id: '3f251f7d-a6e8-4823-bc9b-97d0356d1dcf',
+      id: 'post_3',
       description: 'Acabei de terminar de ler este livro e é incrível!',
       title: 'Uma leitura que vale a pena.',
       author: {
@@ -50,7 +50,7 @@ export const postListMock: Post[] = [
       isFavorited: false
     },
     {
-      id: '8aa14f92-af48-4f3a-897c-ec569d25bb30',
+      id: 'post_4',
       description: 'Não posso acreditar que já é maio!',
       title: 'O tempo voa!',
       author: {
@@ -66,7 +66,7 @@ export const postListMock: Post[] = [
       isFavorited: false
     },
     {
-      id: '6927c54e-df67-4fc0-a0ef-14d5ab6de58d',
+      id: 'post_5',
       description: 'Dia de codificação!',
       title: 'Tempo para programar!',
       author: {
@@ -82,7 +82,7 @@ export const postListMock: Post[] = [
       isFavorited: false
     },
     {
-      id: 'bd8de917-b256-402e-94fc-eb6ef1700a85',
+      id: 'post_6',
       description: 'Qual é a sua cor favorita?',
       title: 'Vamos falar sobre preferências.',
       author: {
@@ -98,7 +98,7 @@ export const postListMock: Post[] = [
       isFavorited: false
     },
     {
-      id: '7b3b6e3d-14e2-4876-baf5-aeaed7b8a5ee',
+      id: 'post_7',
       description: 'Estou tão animado para o fim de semana!',
       title: 'Hora de aproveitar!',
       author: {
@@ -114,7 +114,7 @@ export const postListMock: Post[] = [
       isFavorited: false
     },
     {
-      id: '15b13005-8494-45d4-85e7-cbdf1aa5bc7d',
+      id: 'post_8',
       description: 'Acabei de voltar das férias e foi incrível!',
       title: 'Momentos inesquecíveis!',
       author: {
@@ -130,7 +130,7 @@ export const postListMock: Post[] = [
       isFavorited: false
     },
     {
-      id: 'e3f6fe02-91e5-42a1-a8b2-62b29b2f3777',
+      id: 'post_9',
       description: 'Estou adorando este novo restaurante!',
       title: 'Descoberta gastronômica!',
       imageURL: 'https://i.imgur.com/FmSbPv3.jpg',

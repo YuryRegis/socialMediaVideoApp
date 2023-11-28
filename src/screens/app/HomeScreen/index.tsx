@@ -27,8 +27,8 @@ export function HomeScreen() {
     };
 
     function refreshHandler() {
-      setPage(2);
       resetState("postList");
+      setPage(1);
       getPostList(1);
     }
 

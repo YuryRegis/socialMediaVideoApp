@@ -44,7 +44,7 @@ export function CommentList({post}: ICommentList) {
             data={postComments}
             renderItem={renderItem}
             onEndReached={getMoreData}
-            onEndReachedThreshold={0.4}
+            onEndReachedThreshold={0.1}
             ListHeaderComponent={renderHeader}
             ItemSeparatorComponent={Separator}
             keyExtractor={comment => comment.id}

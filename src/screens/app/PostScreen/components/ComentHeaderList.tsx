@@ -1,9 +1,11 @@
 import React from 'react';
-import {Dimensions, Image} from 'react-native';
+import {Dimensions} from 'react-native';
 import {useForm} from 'react-hook-form';
+import NexenPlayer from 'react-native-best-player';
 import {zodResolver} from '@hookform/resolvers/zod';
 
 import {Post} from '@domain';
+import {videoImportUtils} from '@utils';
 import {useAuth, usePostListStore} from '@context';
 import {Text, Box, FormTextInput, TouchableOpacityBox, Icon} from '@components';
 import {HeaderFormSchema, headerSchema} from './HeaderFormSchema';
@@ -38,10 +40,13 @@ export function ComentHeaderList({post}: IComentHeaderList) {
   
   return (
     <>
-      <Image
-            source={{uri: post.imageURL}}
-            style={{width: $width, height: $width}}
+      <NexenPlayer
+        style={{width: $width, height: $width}}
+        // @ts-ignore next-line
+        source={{source: videoImportUtils[post.id]}}
+        config={{resizeMode: 'cover', repeat: true, autoPlay: true, }}
       />
+
       <Box paddingHorizontal='s24' paddingVertical='s16'> 
 
         <Text textAlign='center' preset='headingMedium'>Comentários</Text>
