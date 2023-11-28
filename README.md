@@ -6,7 +6,7 @@ Teste técnico para desenvolvedor mobile (react-native) na empresa RPC (GRPCOM).
 
 ## Download Release
 
-- Android (em construção)
+- [Android](https://github.com/YuryRegis/socialMediaVideoApp/releases/download/release/rpc_release_v0.0.1.apk) (sem Google services, login apenas com usuário mockado)
 
 ## Telas
 
