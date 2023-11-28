@@ -26,7 +26,7 @@ export function CommentList({post}: ICommentList) {
     };
 
     function refreshHandler() {
-        setPage(2);
+        setPage(1);
         resetState("postComments");
         getPostList(1);
     };
