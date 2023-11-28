@@ -1,8 +1,9 @@
 import React, {useRef} from 'react';
 import {Pressable, TextInput as RNTextInput} from 'react-native';
 
+import {Box} from '../Box';
+import {Text} from '../Text';
 import {useAppTheme} from '@hooks';
-import {Box, Text} from '@components';
 import {TextInputProps} from './TextInputProps';
 import {
   $textInputStyle,

@@ -1,7 +1,9 @@
 import React from 'react';
 
 import {Post} from '@domain';
-import {Box, Text} from '@components';
+import {Box} from '../../../Box';
+import {Text} from '../../../Text';
+
 
 type Props = Pick<Post, 'author' | 'title' | 'description' | 'commentCount'>;
 

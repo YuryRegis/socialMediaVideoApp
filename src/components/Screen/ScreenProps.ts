@@ -1,4 +1,4 @@
-import {BoxProps} from '@components';
+import {BoxProps} from '../Box';
 
 export interface ScreenProps extends BoxProps {
   children: React.ReactNode;

@@ -1,4 +1,4 @@
-import {PostComment} from '@domain';
+import {PostComment} from '../Posts/postTypes';
 
 
 export const commentsMock: PostComment[] = [  

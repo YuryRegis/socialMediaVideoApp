@@ -1,4 +1,3 @@
-// import { AsyncStorageMMKV } from '@services';
 import {postApi} from './postApi';
 import {Post, UserPost, PostComment} from './postTypes';
 

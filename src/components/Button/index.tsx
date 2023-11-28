@@ -1,8 +1,11 @@
 import React from 'react';
 
-import {ActivityIndicator, Text, TouchableOpacityBox} from '@components';
+import { ActivityIndicator } from '../ActivityIndicator';
 import {buttonPresets} from './ButtonPresets';
+import {TouchableOpacityBox} from '../Box';
 import {ButtonProps} from './ButtonProps';
+import {Text} from '../Text';
+
 
 export function Button({
   title,

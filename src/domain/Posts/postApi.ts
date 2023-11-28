@@ -1,6 +1,6 @@
-import {userMock} from '@domain';
-import {Post, PostComment, UserPost} from './postTypes';
+import {userMock} from '../User/userMock';
 import {commentsMock} from './commentsMock';
+import {Post, PostComment, UserPost} from './postTypes';
 import {postListMock, postListByIdMock} from './postListMock';
 
 

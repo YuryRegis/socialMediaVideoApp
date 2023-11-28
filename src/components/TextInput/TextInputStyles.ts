@@ -1,7 +1,8 @@
 import {TextStyle} from 'react-native';
 
-import {BoxProps} from '@components';
+import {BoxProps} from '../Box';
 import {$fontFamily, $fontSizes} from '../Text/TextPresets';
+
 
 export const $textInputStyle: TextStyle = {
   padding: 0,

@@ -2,8 +2,11 @@ import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 
 import {Post} from '@domain';
+import {Icon} from '../../../Icon';
+import {Text} from '../../../Text';
 import {usePostListStore, useFavoriteListStore} from '@context';
-import {Box, TouchableOpacityBox, Icon, IconProps, Text} from '@components';
+import {Box, TouchableOpacityBox} from '../../../Box';
+import {IconProps} from '../../../Icon/IconProps';
 
 
 export function PostActions({post}: {post: Post}) {

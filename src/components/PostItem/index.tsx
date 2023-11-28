@@ -1,7 +1,7 @@
 import React from 'react';
 
+import {Box} from '../Box';
 import {Post} from '@domain';
-import {Box} from '@components';
 
 import {PostImage} from './components/PostImage';
 import {PostHeader} from './components/PostHeader';

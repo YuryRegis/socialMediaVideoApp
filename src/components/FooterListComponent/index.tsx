@@ -1,6 +1,8 @@
 import React from 'react';
-import {ActivityIndicator, Box} from '@components';
-import { Platform } from 'react-native';
+import {Platform} from 'react-native';
+
+import {Box} from '../Box';
+import {ActivityIndicator} from "../ActivityIndicator";
 
 
 interface IFooterListComponent {

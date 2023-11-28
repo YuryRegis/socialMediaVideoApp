@@ -1,4 +1,4 @@
-import {TouchableOpacityBoxProps} from '@components';
+import {TouchableOpacityBoxProps} from '../Box';
 import {ButtonPreset} from './ButtonPresets';
 
 

@@ -2,7 +2,8 @@ import React from 'react';
 import {Image} from 'react-native';
 
 import {Post} from '@domain';
-import {Box, Text} from '@components';
+import {Box} from '../../../Box';
+import {Text} from '../../../Text';
 
 type PostHeaderProps = Pick<Post, 'author'>;
 
