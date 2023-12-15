@@ -10,9 +10,24 @@ Teste técnico para desenvolvedor mobile (react-native) na empresa RPC (GRPCOM).
 
 ## Telas
 
-| LOGIN | FEED | UPLOAD | PROFILE | FAVORITES |
-| --- | --- | --- | --- | --- |
-| ![login](https://github.com/YuryRegis/socialMediaVideoApp/assets/29512626/c90d2738-20f1-42f5-9c40-7789ca5d3a71) | ![Simulator Screenshot - iPhone SE (3rd generation) - 2023-11-26 at 09 25 50](https://github.com/YuryRegis/socialMediaVideoApp/assets/29512626/391a9066-5f7d-452d-8b3d-8c93893d8de8) | ![upload](https://github.com/YuryRegis/socialMediaVideoApp/assets/29512626/d1eddd45-43e2-4ded-a2a2-997e34924dfc) | ![profile](https://github.com/YuryRegis/socialMediaVideoApp/assets/29512626/8fc2c40d-ce9d-4b82-8fc6-1c9ab5626571) | ![favorites](https://github.com/YuryRegis/socialMediaVideoApp/assets/29512626/e0b5e4d3-0097-4efe-a104-aeffaca15b76) |
+<div align="center">
+  <table>
+    <tr>
+      <td>LOGIN</td>
+      <td>FEED</td>
+      <td>UPLOAD</td>
+      <td>PROFILE</td>
+      <td>FAVORITES</td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/YuryRegis/socialMediaVideoApp/assets/29512626/c90d2738-20f1-42f5-9c40-7789ca5d3a71" alt="LOGIN" style="width: 200px; height: 400px;"></td>
+      <td><img src="https://github.com/YuryRegis/socialMediaVideoApp/assets/29512626/391a9066-5f7d-452d-8b3d-8c93893d8de8" alt="FEED" style="width: 200px; height: 400px;"></td>
+      <td><img src="https://github.com/YuryRegis/socialMediaVideoApp/assets/29512626/d1eddd45-43e2-4ded-a2a2-997e34924dfc" alt="UPLOAD" style="width: 200px; height: 400px;"></td>
+      <td><img src="https://github.com/YuryRegis/socialMediaVideoApp/assets/29512626/8fc2c40d-ce9d-4b82-8fc6-1c9ab5626571" alt="PROFILE" style="width: 200px; height: 400px;"></td>
+      <td><img src="https://github.com/YuryRegis/socialMediaVideoApp/assets/29512626/e0b5e4d3-0097-4efe-a104-aeffaca15b76" alt="FAVORITES" style="width: 200px; height: 400px;"></td>
+    </tr>
+  </table>
+</div>
 
 #### Login
 
